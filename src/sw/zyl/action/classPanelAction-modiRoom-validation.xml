@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="blanktime">
+        <field-validator type="requiredstring">
+            <message>空闲时间不能为空</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">
+                <![CDATA[
+                [0-9/]{12}
+                ]]>
+            </param>
+            <message>空闲时间格式不正确，正确格式为2017/11/22/1，最后一位为第几大节课</message>
+        </field-validator>
+    </field>
+
+    <field name="classno">
+        <field-validator type="requiredstring">
+            <message>教室号不能为空</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">
+                <![CDATA[
+                \d{5}
+                ]]>
+            </param>
+            <message>教室号不正确，教室号是五位数字</message>
+        </field-validator>
+    </field>
+</validators>

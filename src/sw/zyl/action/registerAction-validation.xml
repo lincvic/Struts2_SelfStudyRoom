@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="sno">
+        <field-validator type="requiredstring">
+            <message>学号不能为空</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">
+                <![CDATA[[1]\d{9}]]>
+            </param>
+            <message>学号不规范，请输入正确学号</message>
+        </field-validator>
+    </field>
+
+    <field name="name">
+        <field-validator type="requiredstring">
+            <message>姓名不能为空</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression"><![CDATA[[\u4e00-\u9fa5]{2,5}]]></param>
+            <message>姓名格式错误，姓名为2～5位汉字</message>
+        </field-validator>
+    </field>
+    
+    <field name="password">
+        <field-validator type="requiredstring">
+            <message>密码不能为空</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression"><![CDATA[(?![0-9]+$)(?![a-z]+$)(?![A-Z]+$)[a-zA-Z0-9]{5,12}]]></param>
+            <message>密码必须为5～12位且由大小写字母及数字组成</message>
+        </field-validator>
+    </field>
+    
+    <field name="repsw">
+        <field-validator type="requiredstring">
+            <message>请再次输入密码</message>
+        </field-validator>
+        <field-validator type="fieldexpression">
+            <param name="expression">
+                <![CDATA[repsw==password]]>
+            </param>
+            <message>两次密码输入不一致</message>
+        </field-validator>
+    </field>
+    
+    <field name="grade">
+        <field-validator type="requiredstring">
+            <message>请输入年级</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">
+                <![CDATA[
+                \d{1}
+                ]]>
+            </param>
+            <message>年级应为1位阿拉伯数字</message>
+        </field-validator>
+    </field>
+    
+    <field name="email">
+        <field-validator type="requiredstring">
+            <message>邮箱不能为空</message>
+        </field-validator>
+        <field-validator type="email">
+            <message>邮箱格式错误</message>
+        </field-validator>
+    </field>
+
+    <field name="phonenum">
+        <field-validator type="requiredstring">
+            <message>手机号不能为空</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regexExpression">
+                <![CDATA[
+                [1]\d{10}
+                ]]>
+            </param>
+            <message>手机号格式不正确</message>
+        </field-validator>
+    </field>
+
+</validators>

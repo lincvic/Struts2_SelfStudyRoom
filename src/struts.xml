@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="login" extends="struts-default">
+        <action name="login" class="sw.zyl.action.loginAction" method="login">
+            <result name="success" type="chain">getAllRoomForStu</result>
+            <result name="loginFail">/index.jsp</result>
+            <result name="input">/index.jsp</result>
+        </action>
+        <action name="adminLogin" class="sw.zyl.action.adminLoginAction" method="adminLogin">
+            <result name="input">WEB-INF/adminLogin.jsp</result>
+            <result name="success">WEB-INF/adminPanel.jsp</result>
+            <result name="adminLoginFail">WEB-INF/adminLogin.jsp</result>
+        </action>
+
+    </package>
+
+    <package name="jump" extends="struts-default">
+
+        <action name="adminJump" class="sw.zyl.action.adminJumpAction" method="adminJump">
+            <result name="success">WEB-INF/adminLogin.jsp</result>
+        </action>
+
+        <action name="adminPanelJump" class="sw.zyl.action.adminJumpAction" method="adminPanelJump">
+            <result name="success">WEB-INF/adminPanel.jsp</result>
+        </action>
+
+        <action name="adminAddRoomJump" class="sw.zyl.action.adminJumpAction" method="adminAddRoomJump">
+            <result name="success">WEB-INF/classAddPanel.jsp</result>
+        </action>
+    </package>
+
+    <package name="register" extends="struts-default">
+        <action name="register" class="sw.zyl.action.registerAction" method="register">
+            <result name="input">/register.jsp</result>
+            <result name="registerFail">/register.jsp</result>
+            <result name="success">/registerConfirm.jsp</result>
+        </action>
+    </package>
+
+    <package name="sutPanel" extends="struts-default">
+        <action name="getAllStu" class="sw.zyl.action.stuPanelAction" method="getAllStu">
+            <result name="getStuFail">WEB-INF/stuPanel.jsp</result>
+            <result name="success">WEB-INF/stuPanel.jsp</result>
+        </action>
+
+        <action name="modiStuJump" class="sw.zyl.action.stuPanelAction" method="modiStu_Jump">
+            <result name="success">WEB-INF/stuModiPanel.jsp</result>
+        </action>
+
+        <action name="modiStu" class="sw.zyl.action.stuPanelAction" method="modiStu">
+            <result name="input">WEB-INF/stuModiPanel.jsp</result>
+            <result name="success">WEB-INF/stuModiComplete.jsp</result>
+            <result name="modiStuError">WEB-INF/stuModiPanel.jsp</result>
+        </action>
+
+        <action name="delStu" class="sw.zyl.action.stuPanelAction" method="delStu">
+            <result name="success">WEB-INF/stuDelComplete.jsp</result>
+            <result name="stuDelFail">WEB-INF/adminPanel.jsp</result>
+        </action>
+    </package>
+
+    <package name="classPanel" extends="struts-default">
+        <action name="addRoom" class="sw.zyl.action.classPanelAction" method="addRoom">
+            <result name="input">WEB-INF/classAddPanel.jsp</result>
+            <result name="success">WEB-INF/classAddComplete.jsp</result>
+            <result name="addRoomFail">WEB-INF/classAddPanel.jsp</result>
+        </action>
+
+        <action name="getAllRoom" class="sw.zyl.action.classPanelAction" method="getAllRoom">
+            <result name="success">WEB-INF/classPanel.jsp</result>
+            <result name="getRoomFail">WEB-INF/classPanel.jsp</result>
+        </action>
+
+        <action name="modiRoomJump" class="sw.zyl.action.classPanelAction" method="modiRoom_Jump">
+            <result name="success">WEB-INF/classModiPanel.jsp</result>
+        </action>
+
+        <action name="modiRoom" class="sw.zyl.action.classPanelAction" method="modiRoom">
+            <result name="success">WEB-INF/classModiComplete.jsp</result>
+            <result name="input">WEB-INF/classModiPanel.jsp</result>
+            <result name="modiStuError">WEB-INF/classModiPanel.jsp</result>
+        </action>
+
+        <action name="delRoom" class="sw.zyl.action.classPanelAction" method="delRoom">
+            <result name="success">WEB-INF/classDelComplete.jsp</result>
+            <result name="delRoomFail">WEB-INF/adminPanel.jsp</result>
+        </action>
+
+        <action name="getAllRoomForStu" class="sw.zyl.action.classPanelAction" method="getAllRoomForStu">
+            <result name="success">/stuShowClassroom.jsp</result>
+        </action>
+    </package>
+
+</struts>
